@@ -20,7 +20,12 @@ See docs/process.md for more on how version tagging works.
 
 Current Trunk
 -------------
-- values returns from `pathconf` now match the defintions found in header files
+- `DISABLE_EXCEPTION_CATCHING=2` is now deprecated since it can be inferred from
+  the presence of the `EXCEPTION_CATCHING_ALLOWED` list.  This makes
+  `DISABLE_EXCEPTION_CATCHING` a simple binary option (0 or 1) which defaults to
+  0 which will be set to 1 internally if `EXCEPTION_CATCHING_ALLOWED` list is
+  specified.
+- Values returned from `pathconf` now match the definitions found in header files
   and/or upstream musl:
     _PC_LINK_MAX 3200 -> 8
     _PC_SYNC_IO -1 -> 1
